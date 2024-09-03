@@ -1,4 +1,4 @@
-import antropy as ant
+#import antropy as ant
 import numpy as np
 from collections import Counter
 from scipy.stats import kurtosis, skew
@@ -21,14 +21,14 @@ class SignaLytica:
 
             'kurtosis': self.kurt,
             'skewness': self.skewness,
-            'detrended_fluctuation_analysis': self.dfa,
+            #'detrended_fluctuation_analysis': self.dfa,
             'activity_hjorth_param': self.activity_hjorth_param,
             'mobility_hjorth_param': self.mobility_hjorth_param,
             'complexity_hjorth_param': self.complexity_hjorth_param,
-            'permutation_entropy': self.permutation_entropy,
-            'approximate_entropy': self.approximate_entropy,
-            'spectral_entropy': self.spectral_entropy,
-            'higuchi_fractal_dimmension': self.higuchi_fractal_dimmension,
+            #'permutation_entropy': self.permutation_entropy,
+            #'approximate_entropy': self.approximate_entropy,
+            #'spectral_entropy': self.spectral_entropy,
+            #'higuchi_fractal_dimmension': self.higuchi_fractal_dimmension,
             'total_power_spectral_density': self.total_power_spectral_density,
             'centroid_power_spectral_density': self.centroid_power_spectral_density,
 
@@ -53,9 +53,9 @@ class SignaLytica:
             'gamma_amplitude': self.gamma_amplitude,
             'hurst_exponent': self.hurst_exponent,
 
-            'singular_valued_decomposition_entropy': self.singular_valued_decomposition_entropy,
-            'petrosian_fractal_dimension': self.petrosian_fractal_dimension,
-            'katz_fractal_dimension': self.katz_fractal_dimension,
+            #'singular_valued_decomposition_entropy': self.singular_valued_decomposition_entropy,
+            #'petrosian_fractal_dimension': self.petrosian_fractal_dimension,
+            #'katz_fractal_dimension': self.katz_fractal_dimension,
         }
 
     def extract_features(self, time_serie, func_names):
@@ -63,19 +63,22 @@ class SignaLytica:
         if func_names == 'all':
             func_names = ['mean', 'std', 'coeff_var', 'median', 'mode', 'max', 'min', 'first_quartile',
                           'third_quartile', 'inter_quartile_range', 'kurtosis', 'skewness',
-                          'detrended_fluctuation_analysis', 'activity_hjorth_param', 'mobility_hjorth_param',
-                          'complexity_hjorth_param', 'permutation_entropy',
+                          #'detrended_fluctuation_analysis',
+                          'activity_hjorth_param', 'mobility_hjorth_param',
+                          'complexity_hjorth_param',
+                          #'permutation_entropy',
                           #'sample_entropy',
-                          'approximate_entropy',
-                          'spectral_entropy', 'higuchi_fractal_dimmension', 'total_power_spectral_density',
+                          #'approximate_entropy',
+                          #'spectral_entropy', 'higuchi_fractal_dimmension',
+                          'total_power_spectral_density',
                           'centroid_power_spectral_density', 'relative_delta_power', 'relative_theta_power',
                           'relative_alpha_power', 'relative_beta_power', 'relative_gamma_power', 'determinism',
                           'trapping_time', 'diagonal_line_entropy', 'average_diagonal_line_length',
                           'compute_recurrence_rate', 'spectral_edge_frequency_25', 'spectral_edge_frequency_50',
                           'spectral_edge_frequency_75', 'delta_amplitude', 'theta_amplitude', 'beta_amplitude',
                           'alpha_amplitude', 'gamma_amplitude', 'hurst_exponent',
-                          'singular_valued_decomposition_entropy', 'petrosian_fractal_dimension',
-                          'katz_fractal_dimension']
+                          #'singular_valued_decomposition_entropy', 'petrosian_fractal_dimension', 'katz_fractal_dimension',
+                          ]
 
         for func_name in func_names:
             if func_name in self.features_map:
@@ -140,8 +143,8 @@ class SignaLytica:
         return skew(time_serie)
 
     # 13) Detrended fluctuation analysis (DFA)
-    def dfa(self, time_serie):
-        return ant.detrended_fluctuation(time_serie)
+    #def dfa(self, time_serie):
+    #    return ant.detrended_fluctuation(time_serie)
 
     # 14) Hjorth parameters
     def hjorth(self, time_serie, axis=-1):
@@ -172,21 +175,21 @@ class SignaLytica:
         return self.hjorth(test_serie)[2]
 
     # 15) Permutation entropy (PE)
-    def permutation_entropy(self, time_serie):
-        return ant.perm_entropy(time_serie, normalize=True)
+    #def permutation_entropy(self, time_serie):
+    #    return ant.perm_entropy(time_serie, normalize=True)
 
 
     # 17) Approximate entropy (ApEn)
-    def approximate_entropy(self, time_serie):
-        return ant.app_entropy(time_serie)
+    #def approximate_entropy(self, time_serie):
+    #    return ant.app_entropy(time_serie)
 
     # 18) Spectral Entropy
-    def spectral_entropy(self, time_serie):
-        return ant.spectral_entropy(time_serie, sf=128, method='fft', normalize=True)
+    #def spectral_entropy(self, time_serie):
+    #    return ant.spectral_entropy(time_serie, sf=128, method='fft', normalize=True)
 
     # 19) Higuchi fractal dimension (HFD)
-    def higuchi_fractal_dimmension(self, time_serie):
-        return ant.higuchi_fd(time_serie.astype(float))
+    #def higuchi_fractal_dimmension(self, time_serie):
+    #    return ant.higuchi_fd(time_serie.astype(float))
 
     # 20) total Power Spectral Density (total PSD)
     def total_power_spectral_density(self, time_serie):
@@ -469,13 +472,13 @@ class SignaLytica:
         return hurst_exponent
 
     # Singular value decomposition entropy
-    def singular_valued_decomposition_entropy(self, time_serie):
-        return ant.svd_entropy(time_serie, normalize=True)
+    #def singular_valued_decomposition_entropy(self, time_serie):
+    #    return ant.svd_entropy(time_serie, normalize=True)
 
     # Petrosian fractal dimension
-    def petrosian_fractal_dimension(self, time_serie):
-        return ant.petrosian_fd(time_serie)
+    #def petrosian_fractal_dimension(self, time_serie):
+    #    return ant.petrosian_fd(time_serie)
 
     # Katz fractal dimension
-    def katz_fractal_dimension(self, time_serie):
-        return ant.katz_fd(time_serie)
+    #def katz_fractal_dimension(self, time_serie):
+    #    return ant.katz_fd(time_serie)
