@@ -1,7 +1,7 @@
 SignaLytica
 ===========
 
-A Python package for feature extraction in time series and EEG signals
+A Python package for feature extraction in time series and EEG signals.
 
 Installation
 ------------
@@ -19,7 +19,7 @@ Dependencies
 Utilization
 -----------
 
-### Import modules
+**Import modules**
 
 .. code-block:: python
 
@@ -27,7 +27,7 @@ Utilization
     import matplotlib.pyplot as plt
     from signalytica import SignaLytica
 
-### Example time series data
+**Example time series data**
 
 .. code-block:: python
 
@@ -39,12 +39,12 @@ Utilization
     plt.tight_layout()
     plt.savefig('example_time_serie.png')
 
-_Output:_
+*Output:*
 
 .. image:: https://github.com/Edgar-La/signalytica/blob/main/signalytica/example_time_serie.png
    :alt: Example time series plot
 
-### List all the available metrics in the package
+**List all the available metrics in the package**
 
 .. code-block:: python
 
@@ -52,20 +52,19 @@ _Output:_
     available_metrics = signa.list_metrics()
     print(available_metrics)
 
-_Output:_
+*Output:*
 
 ::
 
     ['mean', 'std', 'coeff_var', 'median', 'mode', 'max', 'min', 'first_quartile', 'third_quartile', 'inter_quartile_range', 'kurtosis', 'skewness', 'activity_hjorth_param', 'mobility_hjorth_param', 'complexity_hjorth_param', 'total_power_spectral_density', 'centroid_power_spectral_density', 'relative_delta_power', 'relative_theta_power', 'relative_alpha_power', 'relative_beta_power', 'relative_gamma_power', 'determinism', 'trapping_time', 'diagonal_line_entropy', 'average_diagonal_line_length', 'compute_recurrence_rate', 'spectral_edge_frequency_25', 'spectral_edge_frequency_50', 'spectral_edge_frequency_75', 'delta_amplitude', 'theta_amplitude', 'beta_amplitude', 'alpha_amplitude', 'gamma_amplitude', 'hurst_exponent']
 
-### Extract specific features from time series/EEG signal
+**Extract specific features from time series/EEG signal**
 
 .. code-block:: python
 
     features = ['coeff_var', 'inter_quartile_range', 'kurtosis', 'total_power_spectral_density', 'trapping_time']
     signa.extract_features(x, features)
-
-_Output:_
+*Output:*
 
 ::
 
@@ -77,74 +76,76 @@ _Output:_
       'trapping_time': 2.2205882352941178
     }
 
-### Calculate individual features
+Calculate individual features
+-----------------------------
 
-__Activity Hjorth Parameter__
+**Activity Hjorth Parameter**
 
 .. code-block:: python
 
-    hurst_exp = signa.activity_hjorth_param(x)
-    print(hurst_exp)
+    activity = signa.activity_hjorth_param(x)
+    print(activity)
 
-_Output:_
+*Output:*
 
 ::
 
     0.9296511098623816
 
-__Total power spectral density__
+**Total power spectral density**
 
 .. code-block:: python
 
-    hurst_exp = signa.total_power_spectral_density(x)
-    print(hurst_exp)
+    tpsd = signa.total_power_spectral_density(x)
+    print(tpsd)
 
-_Output:_
+*Output:*
 
 ::
 
     1.03503685376608
 
-__Determinism__
+**Determinism**
 
 .. code-block:: python
 
-    hurst_exp = signa.determinism(x)
-    print(hurst_exp)
+    determ = signa.determinism(x)
+    print(determ)
 
-_Output:_
+*Output:*
 
 ::
 
     4.315972222222222
 
-__Alpha amplitude__
+**Alpha amplitude**
 
 .. code-block:: python
 
-    hurst_exp = signa.alpha_amplitude(x)
-    print(hurst_exp)
+    alpha_amp = signa.alpha_amplitude(x)
+    print(alpha_amp)
 
-_Output:_
+*Output:*
 
 ::
 
     0.19518190403498442
 
-__Hurst Exponent__
+**Hurst Exponent**
 
 .. code-block:: python
 
     hurst_exp = signa.hurst_exponent(x)
     print(hurst_exp)
 
-_Output:_
+*Output:*
 
 ::
 
     0.5074992385199263
 
-### Extract all features
+Extract all features
+----------------------
 
 Instead of using a list to indicate the features, you can use the parameter *all* to calculate all the features.
 
@@ -153,7 +154,7 @@ Instead of using a list to indicate the features, you can use the parameter *all
     all_features_calculated = signa.extract_features(x, 'all')
     all_features_calculated
 
-_Output:_
+*Output:*
 
 ::
 
@@ -194,7 +195,7 @@ _Output:_
      'gamma_amplitude': 0.36127348831240264,
      'hurst_exponent': 0.5074992385199263}
 
-### Convert the features into a feature vector
+**Convert the features into a feature vector**
 
 .. code-block:: python
 
@@ -202,7 +203,7 @@ _Output:_
     print('features:', feature_vector)
     print('n_features:', len(feature_vector))
 
-_Output:_
+*Output:*
 
 ::
 
