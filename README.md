@@ -31,7 +31,7 @@ plt.savefig('example_time_serie.png')
 ```
 _Output:_
 
-![example_test_serie](https://github.com/Edgar-La/signalytica/blob/main/signalytica/example_time_serie.png)
+![](https://github.com/Edgar-La/signalytica/blob/main/signalytica/example_time_serie.png?raw=true)
 
 ### List all the available metrics in the package
 ```python
