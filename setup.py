@@ -37,7 +37,7 @@ if __name__ == "__main__":
         author="Edgar Lara",
         author_email="elara480@gmail.com",
         description="Feature extraction for time series and EEG signals",
-        long_description=open('README.md').read(),
+        long_description=open('README.rst').read(),
         long_description_content_type="text/markdown",
         url="https://github.com/Edgar-La/signalytica",
         #packages=find_packages(),
