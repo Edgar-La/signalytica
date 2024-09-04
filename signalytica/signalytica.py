@@ -58,6 +58,9 @@ class SignaLytica:
             #'katz_fractal_dimension': self.katz_fractal_dimension,
         }
 
+    def list_metrics(self):
+        return list(self.features_map.keys())
+
     def extract_features(self, time_serie, func_names):
         results = {}
         if func_names == 'all':
