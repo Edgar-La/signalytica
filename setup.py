@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     setup(
         name="signalytica",
-        version="0.1.17",
+        version="0.1.18",
         author="Edgar Lara",
         author_email="elara480@gmail.com",
         description="Feature extraction for time series and EEG signals",
