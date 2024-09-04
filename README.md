@@ -66,8 +66,8 @@ _Output:_
 ### Calculate individual features
 __Activity Hjorth Paramater__
 ```python
-hurst_exp = signa.activity_hjorth_param(x)
-print(hurst_exp)
+activity = signa.activity_hjorth_param(x)
+print(activity)
 ```
 _Output:_
 > 0.9296511098623816
@@ -75,8 +75,8 @@ _Output:_
 
 __Total power spectral density__
 ```python
-hurst_exp = signa.total_power_spectral_density(x)
-print(hurst_exp)
+tpsd = signa.total_power_spectral_density(x)
+print(tpsd)
 ```
 _Output:_
 > 1.03503685376608
@@ -85,8 +85,8 @@ _Output:_
 
 __Determinism__
 ```python
-hurst_exp = signa.determinism(x)
-print(hurst_exp)
+determ = signa.determinism(x)
+print(determ)
 ```
 _Output:_
 > 4.315972222222222
@@ -95,8 +95,8 @@ _Output:_
 
 __Alpha amplitude__
 ```python
-hurst_exp = signa.alpha_amplitude(x)
-print(hurst_exp)
+alpha_amp = signa.alpha_amplitude(x)
+print(alpha_amp)
 ```
 _Output:_
 > 0.19518190403498442
