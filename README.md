@@ -23,10 +23,15 @@ from signalytica import SignaLytica
 ```python
 np.random.seed(1234)
 x = np.random.normal(size=128)
+plt.figure(figsize=(6,2))
 plt.plot(x)
+plt.title('Example time serie'); plt.xlabel('Samples'); plt.ylabel('Amplitude')
+plt.tight_layout()
+plt.savefig('example_time_serie.png')
 ```
 _Output:_
 
+![example_test_serie](https://github.com/Edgar-La/signalytica/blob/main/signalytica/example_time_serie.png)
 
 ### Extract specific features from time serie/EEG signal
 ```python
