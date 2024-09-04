@@ -33,9 +33,20 @@ _Output:_
 
 ![example_test_serie](https://github.com/Edgar-La/signalytica/blob/main/signalytica/example_time_serie.png)
 
-### Extract specific features from time serie/EEG signal
+### List all the available metrics in the package
 ```python
 signa = SignaLytica()
+available_metrics = signa.list_metrics()
+print(available_metrics)
+```
+_Output:_
+> ['mean', 'std', 'coeff_var', 'median', 'mode', 'max', 'min', 'first_quartile', 'third_quartile', 'inter_quartile_range', 'kurtosis', 'skewness', 'activity_hjorth_param', 'mobility_hjorth_param', 'complexity_hjorth_param', 'total_power_spectral_density', 'centroid_power_spectral_density', 'relative_delta_power', 'relative_theta_power', 'relative_alpha_power', 'relative_beta_power', 'relative_gamma_power', 'determinism', 'trapping_time', 'diagonal_line_entropy', 'average_diagonal_line_length', 'compute_recurrence_rate', 'spectral_edge_frequency_25', 'spectral_edge_frequency_50', 'spectral_edge_frequency_75', 'delta_amplitude', 'theta_amplitude', 'beta_amplitude', 'alpha_amplitude', 'gamma_amplitude', 'hurst_exponent']
+
+
+
+
+### Extract specific features from time serie/EEG signal
+```python
 features = ['coeff_var', 'inter_quartile_range', 'kurtosis', 'total_power_spectral_density', 'trapping_time']
 signa.extract_features(x, features)
 ```
@@ -101,6 +112,7 @@ _Output:_
 
 
 ### Extract all feautres
+Instead of use a list indicating the features, you can use the parameter _all_ to calculate all the features.
 ```python
 all_features_calculated = signa.extract_features(x, 'all')
 all_features_calculated
@@ -152,6 +164,7 @@ print('n_features:', len(feature_vector))
 ```
 _Output:_
 > features: [0.006880339575229891, 0.9641841680210175, 0.9296511098623816, 0.07802095042293272, 0.47143516373249306, 2.390960515463033, -3.5635166606247353, -0.4874633299633267, 0.6768295649371497, 1.1642928949004765, 0.9355744131054928, -0.5940081255524681, 0.9296511098623816, 1.5772426970445614, 1.1381489369369338, 1.03503685376608, 39.785545239633095, 0.014199533696614332, 0.024773922507739236, 0.06670507211034518, 0.16222741368578988, 0.1944461143387118, 4.315972222222222, 2.2205882352941178, 2.794104878439014, 26.28700906344411, 0.063720703125, 27.0, 46.0, 55.0, 0.332883261842357, 0.1334128596782051, 0.44829663314331475, 0.19518190403498442, 0.36127348831240264, 0.5074992385199263]
+
 > n_features: 36
 
 ## Development
